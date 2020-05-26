@@ -1,20 +1,29 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true" class="masters ion-text-center">
+  <header>
+    <h1>FLASHCARDS</h1>
+  </header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <section>
+    <div class="add_flashcard item_circle">
+      <figure class="circle">
+        <span>+</span>
+      </figure>
+      <h2>NOVO FLASHCARD</h2>
+    </div>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <div class="all_flashcard item_circle">
+      <figure class="circle">
+        <span><ion-icon name="menu-outline"></ion-icon></span>
+      </figure>
+      <h2>TODOS FLASHCARDS</h2>
+    </div>
+
+    <div class="about_app item_circle" routerLink="/about-app" routerDirection="forward">
+      <figure class="circle">
+        <span class="span_about_app">i</span>
+      </figure>
+      <h2>SOBRE O APLICATIVO</h2>
+    </div>
+  </section>
+  
 </ion-content>

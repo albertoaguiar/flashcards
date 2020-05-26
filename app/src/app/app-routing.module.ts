@@ -10,7 +10,15 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },  {
+    path: 'about-app',
+    loadChildren: () => import('./about-app/about-app.module').then( m => m.AboutAppPageModule)
   },
+  {
+    path: 'flashcard-form',
+    loadChildren: () => import('./flashcard-form/flashcard-form.module').then( m => m.FlashcardFormPageModule)
+  },
+
 ];
 
 @NgModule({
