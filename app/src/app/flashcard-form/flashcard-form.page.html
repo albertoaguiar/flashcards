@@ -1,9 +1,33 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>flashcardForm</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaultHref="home"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>{{ title }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+  <header>
+    <h1>{{ page_desc }}</h1>
+  </header>
+  
+  <section>
+    <form (ngSubmit)="onSubmit()">
+      <ion-item class="item">
+        <ion-input name="name" placeholder="Título do Flashcard" [(ngModel)]="flashcard.flashcard_title" name="flashcard_title"></ion-input>
+      </ion-item>
 
+      <ion-item class="item">
+        <ion-textarea name="description" placeholder="Descrição do Flashcard" [(ngModel)]="flashcard.flashcard_desc" name="flashcard_desc"></ion-textarea>
+      </ion-item>
+
+      <ion-item class="item">
+        <ion-input name="image" placeholder="Imagem do Flashcard" type="file" [(ngModel)]="flashcard.image" name="image"></ion-input>
+      </ion-item>
+
+      <ion-button class="btn_amarelo" type="submit" expand="full">SALVAR</ion-button>
+    </form>
+  </section>
 </ion-content>
