@@ -45,6 +45,8 @@ export class FlashcardListPage implements OnInit {
         }
       ]
     });
+
+    alert.present();
   }
 
   async executeDelete(flashcard: Flashcard) {

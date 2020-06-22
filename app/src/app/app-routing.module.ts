@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: 'flashcards/new', loadChildren: () => import('./flashcard-form/flashcard-form.module').then( m => m.FlashcardFormPageModule) },
   { path: 'flashcards/edit/:id', loadChildren: () => import('./flashcard-form/flashcard-form.module').then( m => m.FlashcardFormPageModule) },
   { path: 'flashcards', loadChildren: () => import('./flashcard-list/flashcard-list.module').then( m => m.FlashcardListPageModule) },
-  {path: 'flashcard-detail',loadChildren: () => import('./flashcard-detail/flashcard-detail.module').then( m => m.FlashcardDetailPageModule)},
+  {path: 'flashcards/detail/:id',loadChildren: () => import('./flashcard-detail/flashcard-detail.module').then( m => m.FlashcardDetailPageModule)},
 
 ];
 

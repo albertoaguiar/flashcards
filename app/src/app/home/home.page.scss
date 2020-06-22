@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Impact";
+  src: url("../../assets/fonts/impact.ttf") format('truetype');
+  }
+
 ion-content {
   --ion-background-color: #ffcb00;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -5,7 +10,7 @@ ion-content {
 }
 
 header {
-  margin-top: 10%;
+  margin-top: 5%;
 
   h1 {
     font-size: 40px;
@@ -18,13 +23,13 @@ header {
     display: block;
     background: #49E7B9;
     border-radius: 100%;
-    height: 130px;
-    width: 130px;
+    height: 90px;
+    width: 90px;
     margin: 8px auto;
 
     span {
-      font-size: 120px;
-      line-height: 130px;
+      font-size: 80px;
+      line-height: 90px;
     }
   }
 }
@@ -32,8 +37,16 @@ header {
 .about_app {
   .circle {
     span {
-      font-size: 80px;
-      line-height: 130px;
+      font-size: 40px;
+      line-height: 90px;
+    }
+  }
+}
+
+.all_flashcard {
+  .circle {
+    span {
+      line-height: 106px;
     }
   }
 }

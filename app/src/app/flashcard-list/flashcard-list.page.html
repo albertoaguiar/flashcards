@@ -4,7 +4,7 @@
       <ion-back-button text="" defaultHref="home"></ion-back-button>
     </ion-buttons>
 
-    <ion-title>TODOS FLASHCARDS</ion-title>
+    <ion-title class="ion-text-center">TODOS FLASHCARDS</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -16,7 +16,7 @@
   <section>
     <ion-list>
       <ion-item-sliding id="item100" *ngFor="let flashcard of flashcards">
-        <ion-item href="#">
+        <ion-item [routerLink]="['detail', flashcard.id]">
           <ion-label>
             <h2>{{flashcard.flashcard_title}}</h2>
             <p>{{flashcard.flashcard_desc}}</p>
@@ -28,7 +28,7 @@
             <ion-icon slot="icon-only" name="trash"></ion-icon>
           </ion-item-option>
           <ion-item-option [routerLink]="['edit', flashcard.id]">
-            <ion-icon slot="icon-only" name="star"></ion-icon>
+            <ion-icon slot="icon-only" name="pencil"></ion-icon>
           </ion-item-option>
         </ion-item-options>
       </ion-item-sliding>
