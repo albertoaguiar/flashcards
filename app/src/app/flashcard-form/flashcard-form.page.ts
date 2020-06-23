@@ -38,6 +38,8 @@ export class FlashcardFormPage implements OnInit {
 
   async onSubmit() {
     try {
+      console.log(this.flashcard);
+      return;
       const result = await this.flashcardService.save(this.flashcard);
       this.flashcard.id = result.insertId;
 

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Flashcard } from '../shared/flashcard';
 import { FlashcardService } from '../shared/flashcard.service';
 import { ActivatedRoute } from '@angular/router';
-import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-flashcard-detail',
@@ -14,7 +14,7 @@ export class FlashcardDetailPage implements OnInit {
   id: number;
   flashcard_title: string;
   flashcard_desc: string;
-  image: SafeUrl;
+  image: string;
 
   constructor(
     private flashcardService: FlashcardService,
@@ -33,16 +33,9 @@ export class FlashcardDetailPage implements OnInit {
     this.flashcard_title = this.flashcard.flashcard_title;
     this.flashcard_desc = this.flashcard.flashcard_desc;
 
-    //this.image = this.flashcard.image;
+    this.image = this.flashcard.image;
 
-    var base64data;
-    var reader = new FileReader();
-    reader.readAsDataURL(this.flashcard.image);
-    reader.onloadend = function() {
-      base64data = reader.result;
-    }
-
-    this.image = this.sanitizer.bypassSecurityTrustUrl('data:image/png;base64,' + base64data);
+    console.log(this.image);
   }
 
 }
