@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Flashcard } from '../shared/flashcard';
 import { FlashcardService } from '../shared/flashcard.service';
 import { ActivatedRoute } from '@angular/router';
-import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-flashcard-detail',
@@ -14,12 +14,12 @@ export class FlashcardDetailPage implements OnInit {
   id: number;
   flashcard_title: string;
   flashcard_desc: string;
-  image: string;
+  image: SafeUrl;
 
   constructor(
     private flashcardService: FlashcardService,
     private route: ActivatedRoute,
-    private sanitizer:DomSanitizer) { }
+    private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
     const idParam = this.route.snapshot.paramMap.get('id');
@@ -33,7 +33,8 @@ export class FlashcardDetailPage implements OnInit {
     this.flashcard_title = this.flashcard.flashcard_title;
     this.flashcard_desc = this.flashcard.flashcard_desc;
 
-    this.image = this.flashcard.image;
+    //this.image = 'data:image/*;base64,'+this.flashcard.image;
+    this.image = this.sanitizer.bypassSecurityTrustUrl("data:Image/*;base64,"+this.flashcard.image);
 
     console.log(this.image);
   }

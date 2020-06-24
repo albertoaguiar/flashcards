@@ -3,6 +3,9 @@ import { Flashcard } from '../shared/flashcard';
 import { FlashcardService } from '../shared/flashcard.service';
 import { ActivatedRoute } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { Platform } from '@ionic/angular';
+import { File } from '@ionic-native/file/ngx';
 
 @Component({
   selector: 'app-flashcard-form',
@@ -17,7 +20,10 @@ export class FlashcardFormPage implements OnInit {
   constructor(
     private flashcardService: FlashcardService,
     private route: ActivatedRoute,
-    private toastCtrl: ToastController
+    private toastCtrl: ToastController,
+    private camera: Camera,
+    private platform: Platform,
+    private file: File
   ) { }
 
   ngOnInit() {
@@ -37,9 +43,8 @@ export class FlashcardFormPage implements OnInit {
   }
 
   async onSubmit() {
+    console.log(this.flashcard);
     try {
-      console.log(this.flashcard);
-      return;
       const result = await this.flashcardService.save(this.flashcard);
       this.flashcard.id = result.insertId;
 
@@ -60,6 +65,25 @@ export class FlashcardFormPage implements OnInit {
     });
 
     toast.present();
+  }
+
+  async openGalery() {
+    const options: CameraOptions = {
+      quality: 50,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+      correctOrientation: true
+    };
+
+    try {
+      const image: string = await this.camera.getPicture(options);
+      this.flashcard.image = image;
+
+      this.showToast('Sucesso', 'Upload de imagem realizada com sucesso!', 'success', 1000);
+
+    } catch (error) {
+      console.error(error);
+    }
   }
 
 }

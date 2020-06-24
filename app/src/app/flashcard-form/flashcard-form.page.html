@@ -24,7 +24,10 @@
       </ion-item>
 
       <ion-item class="item">
-        <ion-input name="image" placeholder="Imagem do Flashcard" type="file" [(ngModel)]="flashcard.image" name="image"></ion-input>
+        <ion-button (click)="openGalery()" expand="full">
+          Escolher imagem
+        </ion-button>
+        <!-- <ion-input name="image" placeholder="Imagem do Flashcard" type="file" [(ngModel)]="flashcard.image" name="image"></ion-input> -->
       </ion-item>
 
       <ion-button class="btn_amarelo" type="submit" expand="full">SALVAR</ion-button>
